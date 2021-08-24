@@ -29,7 +29,6 @@ function! gfriend#goto_cWORD(winmotion)
   " If there's no previous window, create a new one
   wincmd p
   if nvim_win_get_number(0) ==# starting_window
-    wincmd p
     execute(a:winmotion." ".bits[0])
   else
     execute("e ".bits[0])
