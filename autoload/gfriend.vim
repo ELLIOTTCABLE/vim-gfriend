@@ -16,10 +16,11 @@ endfunction
 
 function! gfriend#goto_cWORD(winmotion)
   let cword = expand("<cWORD>")
-  let span = matchend(cword, '\v[^:]+:\d+')
+  let st = match(cword, '\v\f+:\d+')
+  let end = matchend(cword, '\v\f+:\d+')
 
-  if span !=# -1
-    let cword = cword[:span - 1]
+  if end !=# -1
+    let cword = cword[st:end - 1]
   endif
 
   let bits = split(cword, ':')
