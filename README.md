@@ -17,3 +17,14 @@ My personal configuration, for example:
 nmap <silent> <Leader>gf :<C-u>call gfriend#goto_cfile(winwidth(0) >=# 180 ? 'vsp' : 'sp')<CR>
 nmap <silent> <Leader>gF :<C-u>call gfriend#goto_cWORD(winwidth(0) >=# 180 ? 'vsp' : 'sp')<CR>
 ```
+
+You can also provide a second argument, to configure the 'edit-in-place' behaviour; this
+is useful, for example, when using with [Fugitive][] - I use the following mapping to
+"goto commit", editing whatever's under the cursor using `:Gedit`:
+
+```vim
+nmap <silent> <Leader>gc :<C-u>call
+ \ gfriend#goto_cfile(winwidth(0) >=# 180 ? 'Gvsp' : 'Gsp', 'Ged')<CR>
+```
+
+   [Fugitive]: <https://github.com/tpope/vim-fugitive> "Tim Pope's powerful Git-wrapper for Vim"
